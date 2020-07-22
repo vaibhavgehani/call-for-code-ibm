@@ -1,0 +1,49 @@
+<div class="parentDiv">
+    <div class="firstChild">
+        <div class="name">
+            <button (click)="gotoMap()" style="background: transparent;margin-right: 10px" mat-fab color="primary">
+                    <mat-icon>keyboard_backspace</mat-icon>              
+            </button>
+            <div class="placeName">{{dataService.placeName}}</div>
+        </div>
+        <div id="chartContainer">
+            <!-- <div *ngIf="!dataService.graphCheck" class="error">Sorry We cannot analysis you Location</div> -->
+            <canvas id="ChatView">
+            </canvas>
+        </div>
+    </div>
+    <div class="secondChild">
+        <div class="label">
+                <div>
+                    <div class="day">{{dataService.selDay}}</div>
+                    <div class="month">{{dataService.selMonth}}</div>
+                </div>
+                <div>
+                    <img *ngIf="dataService.weatherImage!==''" class="img" src="{{dataService.weatherImage}}"/>
+                </div>
+        </div>
+    <div class="flexInBox">
+        <div>
+            <div class="box">
+                <div class="head">Wind Speed</div>
+                <div class="bottom"><span class="num1">{{dataService.weatherData.windSpeed}}</span><span style="color: whitesmoke;margin-left: 3px;">km/h</span></div>
+            </div>
+            <div class="box">
+                <div class="head">Wind Direction</div>
+                <div class="bottom"><span class="num1">{{dataService.weatherData.windDirection}}</span><span style="color: whitesmoke;margin-left: 3px;">d</span></div>
+            </div>
+        </div>
+        <div>
+            <div class="box">
+                <div class="head">Wind Gust</div>
+                <div class="bottom"><span class="num1">{{dataService.weatherData.windGust}}</span><span style="color: whitesmoke;margin-left: 3px;">km/h</span></div>
+            </div>
+            <div class="box headMain">
+                <div class="head">Active Power</div>
+                <div class="bottom"><span class="num11">{{dataService.weatherData.activePower | number:'1.2-2'}}</span><span style="color: whitesmoke;margin-left: 3px;">kW</span></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+</div>

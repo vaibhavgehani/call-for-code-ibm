@@ -1,0 +1,96 @@
+<!-- <div id="map_canvas">
+    <google-map >
+    </google-map>
+</div> -->
+
+<!-- <div>
+    <agm-map>
+
+    </agm-map>
+    <div>
+
+    </div>
+</div> -->
+
+<div>
+  <div *ngIf="spinnerCheck" class="spinCont">
+      <mat-progress-spinner class="spinner" mode="indeterminate" diameter='20' strokeWidth='50'></mat-progress-spinner>
+  </div>
+    <div class="topBar">
+      <div class="parentDiv">
+      <div *ngIf="searchToggle" class="searchInp">
+        <!-- <mat-form-field class="example-full-width"> -->
+          <div style="justify-content: space-between;display: flex">
+              <input class="inp" placeholder="Enter your farm location">
+              <button (click)="getSearch()" style="height: 59px;background-color: skyblue" mat-raised-button color="primary">
+                  <mat-icon>search</mat-icon>              
+              </button>
+              <button (click)="removeSearch()" style="height: 59px;margin-left: 1px;background-color: skyblue" mat-raised-button color="primary">
+                  <mat-icon>close</mat-icon>              
+              </button>
+          </div>
+        <!-- </mat-form-field> -->
+  
+      </div>
+    </div>
+      <div *ngIf="!searchToggle" slot="end" class="btnClass">
+        <button (click)="getSearch()" style="background: transparent" mat-fab color="primary">
+            <mat-icon>search</mat-icon>              
+        </button>
+        <button  (click)="getLocation()" style="margin-left: 30px;background-color: skyblue" mat-fab color="primary">
+            <mat-icon>gps_fixed</mat-icon>              
+        </button>
+      </div>
+    </div>
+    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+      <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    <div class="footerParent">
+      <div class="groundTag">
+          <mat-grid-list cols="6" rowHeight="120px">
+            <mat-grid-tile colspan="3" >
+              <div class="col1">
+                <div class="nameCol">
+                    <div class="name">{{currentLocation}}</div>
+                    <div style="color: skyblue;margin-bottom: 20px;font-weight: bold;">Working Great, Yay !!</div>
+                </div>
+                
+                <div class="pick">
+                  <div class="bottom1">Prediction date</div>
+                    <mat-form-field style="width: 140px;margin-top: 15px" appearance="fill">
+                            <mat-label style="color: whitesmoke">Date</mat-label>
+                            <input (dateChange)="addEvent($event)" style="color: whitesmoke;" matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle style="color: whitesmoke" matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" class="coll">
+              <div class="col2">
+                  <div class="bottom">Wind speed</div>
+                  <div><span class="num">{{windSpeed}}</span><span style="color: whitesmoke;margin-left: 3px;">Km/h</span></div>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" class="col3">
+                <div class="col2">
+                    <div class="bottom">Humidity</div>
+                    <div><span class="num">{{humidityData}}</span><span style="color: whitesmoke;margin-left: 3px;">%</span></div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" class="col4">
+                <div class="col2">
+                    <div class="bottom">LV Active Power</div>
+                    <div *ngIf="activePower === '--'"><span class="num">{{activePower}}</span><span style="color: whitesmoke;margin-left: 3px;">kW</span></div>
+                    <div *ngIf="activePower !== '--'"><span class="num1">{{activePower | number:'1.2-2'}}</span><span style="color: whitesmoke;margin-left: 3px;">kW</span></div>
+                </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+      </div>
+    </div>
+    <div class="navigateURL" >
+      <div class="moreTxt" (click)="predict()"><mat-icon>play_circle_outline</mat-icon><div style="margin-top:3px;margin-left: 5px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Predict</div></div>
+      <div class="moreTxt" style="margin-left: 25px" (click)="gotoMore()"><mat-icon>insert_chart</mat-icon><div style="margin-top:3px;margin-left: 5px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Analysis</div></div>
+    </div>
+  </div>
+  

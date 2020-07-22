@@ -1,0 +1,86 @@
+
+agm-map {
+  height: 100vh;
+  z-index: -1;
+ }
+.groundTag {
+  position: absolute;
+  top: 72vh;
+  /* left: 100px; */
+  background-color: #7f8287;
+  height: 120px;
+  width: 60vw;
+  z-index: 3;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 4px;
+}
+.footerParent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.topBar {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  justify-content: flex-end;
+  /* align-items: flex-end */
+}
+.btnClass {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+.searchInp {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.19);
+  width: 80%;
+  height: 85px;
+  margin: 20px 30px 0px 30px; 
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.parentDiv {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.inp {
+  width: 50vw;
+  height: 50px;
+  font-size: 20px;
+  padding: 3px;
+  outline: none;
+}
+.navigateURL {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  margin-bottom: 15px;
+}
+.moreTxt {
+  color: green;
+  font-size: 19px;
+  font-weight: bold;
+  display: flex;
+  cursor: pointer;
+}
